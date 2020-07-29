@@ -17,7 +17,7 @@ const output = (props) => {
                 <tbody>
                     {/* Why is it props.tasks.map and not props.map?? Looks like props is NOT the array but the parent of the object? */}
                     {props.tasks.map((task, index) => (
-                        <tr>
+                        <tr key = {index}>
                             <td>{task.description}</td>
                             <td>{task.category}</td>
                             <td>{task.date}</td>

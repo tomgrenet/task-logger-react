@@ -5,7 +5,7 @@ const task = (props) => {
     return(
         <div className = "input">
             <input 
-                id = "task"
+                id = "description"
                 value = {props.description} 
                 type="text" 
                 onChange = {props.changed} 

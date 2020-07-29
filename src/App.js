@@ -17,9 +17,8 @@ class App extends Component {
     ]
   }
 
-  //Update property 
+  //Update property on change
   changeHandler = (event) => {
-    console.log(event);
     const value = event.target.value
      return(
       //Allows for updating each specific property on an onChange event
@@ -27,31 +26,31 @@ class App extends Component {
     )
   }
 
-
-
-  addTask = (w, x, y, z) =>{
-    console.log("yoyoyoyo");
-    // Create element to add to this.state.tasks
-    const newTask = [w, x, y, z];
-    console.log(newTask);
-    this.setState(...this.state.tasks, newTask);
+  addTask = (event) => {
+    const newTask = [{description: this.state.description, category: this.state.category, date: this.state.date, time: this.state.time}]
+    return(
+      this.setState({
+        // Does not work without the spread operator applied on newTask; not sure why
+        tasks: [...this.state.tasks, ...newTask]
+      })
+    ) 
   }
 
+  //testestest
+
   render(){
-    
     return(
       <div>
         <h1>Welcome to the Task Logger</h1>
         <h2>ADD A TASK</h2>
         <Task 
           changed={this.changeHandler}
-          description = {this.state.task}
+          description = {this.state.description}
           category = {this.state.category}
           date = {this.state.date}
           time = {this.state.time}
-          clicked = {this.addTask(description, category, date, time)}
+          clicked = {this.addTask}
           />
-        {/* <button onClick = {this.populateData}>ADD</button> */}
         <br/>
         <h2>OUTPUT</h2>
         <Output tasks = {this.state.tasks}/>

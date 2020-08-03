@@ -2,8 +2,12 @@ import React from 'react';
 import './Task.css'
 
 const task = (props) => {
+    
     return(
         <div className = "input">
+            <h2>Add a new task</h2>
+            
+            <label htmlFor = "description" className = "label">Description</label>
             <input 
                 id = "description"
                 value = {props.description} 
@@ -11,6 +15,8 @@ const task = (props) => {
                 onChange = {props.changed} 
                 placeholder="what"/>
             <br/>
+            
+            <label htmlFor = "category" className = "label">Category</label>
             <select 
                 id = "category"
                 onChange = {props.changed} 
@@ -22,31 +28,38 @@ const task = (props) => {
                 <option value="Chill Time">Chill Time</option>
 		    </select>
             <br/>
+            
+            <label htmlFor = "subcat" className = "label">Sub-category</label>
             <select 
                 id = "subCat"
                 onChange = {props.changed}
                 value = {props.subcat}>
-                {/* Will depend on category selected
-                Below assumes the user selected Work */}
-                <option value="Select">--Select--</option>
+                <option value="None">--</option>
                 <option value="Coding">Coding</option>
 		        <option value="Finance">Finance</option>
                 <option value="Job Hunting">Job Hunting</option>
 		    </select>
             <br/>
+            
+            <label htmlFor = "date" className = "label">Date</label>
             <input type="date" id="date" name="date"
                 value = {props.date}
                 min="2020-01-01" 
                 required 
                 onChange = {props.changed}/>
             <br/>
+            
+            <label htmlFor = "time" className = "label">Time</label>
             <input type="time" id="time" name="time" 
                 required
                 onChange = {props.changed}
                 value = {props.time}></input>
+            <br/>
             <br/>             
+            
             <button 
                 type="submit" 
+                id = "submitButton"
                 onClick = {props.clicked}>Add entry</button>
          </div>
         

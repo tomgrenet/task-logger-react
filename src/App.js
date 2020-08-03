@@ -12,8 +12,9 @@ class App extends Component {
   
   state = {
     tasks: [
-      {description: 'Eating salad', category: 'Eat', date: '17/07/2020', time:'13:00'},
-      {description: 'Coding', category: 'Work', date: '17/07/2020', time:'11:00'}
+      {description: 'Eating salad', category: 'Eat', subcat: '--', date: '17/07/2020', time:'13:00'},
+      {description: 'Coding', category: 'Work', subcat: 'Coding', date: '17/07/2020', time:'11:00'},
+      {description: 'Scheduling Life Coach', category: 'Work', subcat: 'Coaching', date: '17/07/2020', time:'11:00'}
     ]
   }
 
@@ -36,13 +37,29 @@ class App extends Component {
     ) 
   }
 
-  //testestest
+  editEntry = () => {
+    //Need to select row corresponding to edit button
+    //Update state
+    //return ()
+  }
+
+  deleteEntry = (index) => {
+    const updatedTasks = [...this.state.tasks];
+    updatedTasks.splice(index, 1);
+    return this.setState({tasks: updatedTasks})
+  }
+
+ //This does NOT work - I DO NOT UNDERSTAND WHY NOT
+  // deleteEntry = (index) => {
+  //   const updatedTasks = [...this.state.tasks];
+  //   const reducedTasks = updatedTasks.splice(index, 1);
+  //   return this.setState({tasks: reducedTasks})
+  // }
 
   render(){
     return(
       <div>
         <h1>Welcome to the Task Logger</h1>
-        <h2>ADD A TASK</h2>
         <Task 
           changed={this.changeHandler}
           description = {this.state.description}
@@ -53,7 +70,10 @@ class App extends Component {
           />
         <br/>
         <h2>OUTPUT</h2>
-        <Output tasks = {this.state.tasks}/>
+        <Output 
+          tasks = {this.state.tasks}
+          edit = {this.editEntry}
+          delete = {this.deleteEntry}/>
       </div>
     )
   }

@@ -1,9 +1,17 @@
 .input{
     display: inline-block;
     margin: 10px;
-    padding: 10px;
+    padding:10px;
     border: 2px solid black;
     background-color: lightblue;
     box-shadow: darkgrey;
     border-radius: 5%;
+}
+
+.label{
+    width: 100px;
+}
+
+#submitButton{
+    text-align: center;
 }

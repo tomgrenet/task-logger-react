@@ -2,68 +2,66 @@ import React from 'react';
 import './Task.css'
 
 const task = (props) => {
-    
     return(
-        <div className = "input">
-            <h2>Add a new task</h2>
-            
-            <label htmlFor = "description" className = "label">Description</label>
-            <input 
-                id = "description"
-                value = {props.description} 
-                type="text" 
-                onChange = {props.changed} 
-                placeholder="what"/>
-            <br/>
-            
-            <label htmlFor = "category" className = "label">Category</label>
-            <select 
+        <tr>
+            <td>
+                <input 
+                    id = "description"
+                    value = {props.description} 
+                    type="text" 
+                    onChange = {props.changed} 
+                    placeholder="what"/>
+            </td>
+
+            <td>
+                <select 
                 id = "category"
                 onChange = {props.changed} 
                 value = {props.category}>
-                <option value="Select">--Select--</option>
-                <option value="Family">Family</option>
-		        <option value="Friends">Friends</option>
-                <option value="Work">Work</option>
-                <option value="Chill Time">Chill Time</option>
-		    </select>
-            <br/>
-            
-            <label htmlFor = "subcat" className = "label">Sub-category</label>
-            <select 
+                    <option value="Select">--Select--</option>
+                    <option value="Family">Family</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Work">Work</option>
+                    <option value="Chill Time">Chill Time</option>
+                </select>
+            </td>
+
+            <td>
+                <select 
                 id = "subCat"
                 onChange = {props.changed}
                 value = {props.subcat}>
-                <option value="None">--</option>
-                <option value="Coding">Coding</option>
-		        <option value="Finance">Finance</option>
-                <option value="Job Hunting">Job Hunting</option>
-		    </select>
-            <br/>
-            
-            <label htmlFor = "date" className = "label">Date</label>
-            <input type="date" id="date" name="date"
+                    <option value="None">--</option>
+                    <option value="Coding">Coding</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Job Hunting">Job Hunting</option>
+                </select>
+            </td>
+
+            <td>
+                <input type="date" id="date" name="date"
                 value = {props.date}
                 min="2020-01-01" 
                 required 
                 onChange = {props.changed}/>
-            <br/>
-            
-            <label htmlFor = "time" className = "label">Time</label>
-            <input type="time" id="time" name="time" 
+            </td>
+
+            <td>
+                <input type="time" id="time" name="time" 
                 required
                 onChange = {props.changed}
-                value = {props.time}></input>
-            <br/>
-            <br/>             
-            
-            <button 
+                value = {props.time}>
+                </input>
+            </td>
+
+            <td>
+                <button 
                 type="submit" 
                 id = "submitButton"
                 onClick = {props.clicked}>Add entry</button>
-         </div>
-        
-        
+            </td>
+    
+        </tr>  
     )
 }
 

@@ -60,20 +60,31 @@ class App extends Component {
     return(
       <div>
         <h1>Welcome to the Task Logger</h1>
-        <Task 
-          changed={this.changeHandler}
-          description = {this.state.description}
-          category = {this.state.category}
-          date = {this.state.date}
-          time = {this.state.time}
-          clicked = {this.addTask}
-          />
-        <br/>
-        <h2>OUTPUT</h2>
-        <Output 
-          tasks = {this.state.tasks}
-          edit = {this.editEntry}
-          delete = {this.deleteEntry}/>
+        <table className="table">
+          <thead className="header">
+              <tr>
+                  <td>Description</td>
+                  <td>Category</td>
+                  <td>Sub-category</td>
+                  <td>Date</td>
+                  <td>Time</td>
+              </tr>
+          </thead>
+          <tbody>
+            <Task 
+              changed={this.changeHandler}
+              description = {this.state.description}
+              category = {this.state.category}
+              date = {this.state.date}
+              time = {this.state.time}
+              clicked = {this.addTask}
+              />
+            <Output 
+              tasks = {this.state.tasks}
+              edit = {this.editEntry}
+              delete = {this.deleteEntry}/>
+          </tbody>
+        </table>
       </div>
     )
   }
